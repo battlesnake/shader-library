@@ -1,6 +1,5 @@
 precision mediump float;
 
-uniform vec4 material_color;
 uniform vec3 light_position;
 uniform vec3 ambient_light_color;
 uniform vec3 diffuse_light_color;
@@ -32,7 +31,7 @@ void calc_color() {
 		dot(specular_light_dist, specular_light_dist);
 	/* Combine light colours */
 	vec3 light_color = ambient_light_color + diffuse_light + specular_light;
-	gl_FragColor = clamp(vec4(light_color, 1.0) * material_color, 0.0, 1.0);
+	gl_FragColor = clamp(vec4(light_color, 1.0) * color, 0.0, 1.0);
 }
 
 void main() {

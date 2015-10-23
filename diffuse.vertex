@@ -2,7 +2,11 @@ precision mediump float;
 
 attribute vec3 position;
 attribute vec3 normal;
+attribute vec4 vertex_color;
 
+uniform bool per_vertex_color;
+
+uniform vec4 material_color;
 uniform mat4 projection;
 uniform mat4 model;
 uniform vec3 camera_position;
@@ -38,4 +42,5 @@ void calc_normal() {
 void main() {
 	calc_position();
 	calc_normal();
+	color = per_vertex_color ? vertex_color : material_color;
 }
